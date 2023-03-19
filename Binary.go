@@ -6,31 +6,21 @@ func main() {
 	fmt.Println("DECIMAL & BINARY & HEXADECIMAL CONVERTER")
 
 	//hexToBinary()
-	binaryToDecimal()
 }
 
 func binaryToDecimal() {
 	var decimal int
-	var binaryHolder int
-	var binaryArr [100]int
-	ctr := 0
+	var binaryArr [9]int
 	array := [9]int{256, 128, 64, 32, 16, 8, 4, 2, 1}
 
 	// Input a binary and store it in the array
 	fmt.Print("Enter a binary digit: ")
-	for binaryHolder != 2 {
-		fmt.Scan(&binaryHolder)
-		binaryArr[ctr] = binaryHolder
-		ctr++
+	for i := 0; i < 9; i++ {
+		fmt.Scan(&binaryArr[i])
 	}
-	ctr--
-
-	//for i := 0; i < 9; i++ {
-	//fmt.Scan(&binaryArr[i])
-	//}
 
 	// Convert the binary into decimal
-	for i := 0; i < ctr; i++ {
+	for i := 0; i < 9; i++ {
 		if binaryArr[i] == 1 { // Check if the bit is equal to one
 			decimal += array[i] // Add the values in the array and stored it in the decimal if the the condition is true
 		}
