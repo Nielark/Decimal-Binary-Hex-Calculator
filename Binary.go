@@ -25,10 +25,6 @@ func binaryToDecimal() {
 	}
 	ctr--
 
-	//for i := 0; i < 9; i++ {
-	//fmt.Scan(&binaryArr[i])
-	//}
-
 	// Convert the binary into decimal
 	for i := 0; i < ctr; i++ {
 		if binaryArr[i] == 1 { // Check if the bit is equal to one
