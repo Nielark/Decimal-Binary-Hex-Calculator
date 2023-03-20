@@ -5,7 +5,8 @@ import "fmt"
 func main() {
 	fmt.Println("DECIMAL & BINARY & HEXADECIMAL CONVERTER")
 
-	//hexToBinary()
+	hexToBinary()
+	//binaryToDecimal()
 }
 
 func binaryToDecimal() {
@@ -50,12 +51,15 @@ func hexToBinary() {
 	//var decimal int
 	var hexArr [4]string
 	var tempHolder string
+	//array := [4]int{8, 4, 2, 1}
+	var valueArr [4]int
 
 	fmt.Print("Enter a hexadecimal: ")
 	for i := 0; i < 4; i++ {
 		fmt.Scan(&tempHolder)
 
-		if tempHolder == "1" ||
+		if tempHolder == "0" ||
+			tempHolder == "1" ||
 			tempHolder == "2" ||
 			tempHolder == "3" ||
 			tempHolder == "4" ||
@@ -64,7 +68,6 @@ func hexToBinary() {
 			tempHolder == "7" ||
 			tempHolder == "8" ||
 			tempHolder == "9" ||
-			tempHolder == "0" ||
 			tempHolder == "A" ||
 			tempHolder == "B" ||
 			tempHolder == "C" ||
@@ -76,8 +79,42 @@ func hexToBinary() {
 	}
 
 	for i := 0; i < 4; i++ {
-		if hexArr[i] == "1" {
-
+		if hexArr[i] == "0" {
+			valueArr[i] = 0
+		} else if hexArr[i] == "1" {
+			valueArr[i] = 1
+		} else if hexArr[i] == "2" {
+			valueArr[i] = 2
+		} else if hexArr[i] == "3" {
+			valueArr[i] = 3
+		} else if hexArr[i] == "4" {
+			valueArr[i] = 4
+		} else if hexArr[i] == "5" {
+			valueArr[i] = 5
+		} else if hexArr[i] == "6" {
+			valueArr[i] = 6
+		} else if hexArr[i] == "7" {
+			valueArr[i] = 7
+		} else if hexArr[i] == "8" {
+			valueArr[i] = 8
+		} else if hexArr[i] == "9" {
+			valueArr[i] = 9
+		} else if hexArr[i] == "A" {
+			valueArr[i] = 10
+		} else if hexArr[i] == "B" {
+			valueArr[i] = 11
+		} else if hexArr[i] == "C" {
+			valueArr[i] = 12
+		} else if hexArr[i] == "D" {
+			valueArr[i] = 13
+		} else if hexArr[i] == "E" {
+			valueArr[i] = 14
+		} else if hexArr[i] == "F" {
+			valueArr[i] = 15
 		}
+	}
+
+	for i := 0; i < 4; i++ {
+		fmt.Print(valueArr[i])
 	}
 }
