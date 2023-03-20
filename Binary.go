@@ -10,13 +10,30 @@ func main() {
 
 func binaryToDecimal() {
 	var decimal int
-	var binaryArr [9]int
+	var binaryHolder int
+	var binaryArr [100]int
+	ctr := -1
 	array := [9]int{256, 128, 64, 32, 16, 8, 4, 2, 1}
 
 	// Input a binary and store it in the array
 	fmt.Print("Enter a binary digit: ")
+	for binaryHolder != 2 {
+		ctr++
+		fmt.Scan(&binaryHolder)
+		binaryArr[ctr] = binaryHolder
+	}
+
+	max := 9 // Max size if the array
+	if ctr != 9 {
+		for i := ctr; i >= 0; i-- {
+			binaryArr[max] = binaryArr[i]
+			binaryArr[i] = 0
+			max--
+		}
+	}
+
 	for i := 0; i < 9; i++ {
-		fmt.Scan(&binaryArr[i])
+		fmt.Print(binaryArr[i])
 	}
 
 	// Convert the binary into decimal
