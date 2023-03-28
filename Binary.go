@@ -2,40 +2,38 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 )
 
 func main() {
-	var choice int
-
-	fmt.Println("DECIMAL & BINARY & HEXADECIMAL CONVERTER")
-
-	fmt.Println("[1] - Binary to Decimal")
-	fmt.Println("[2] - Hexadecimal to Binary")
-	fmt.Print("[0] - Exit\n\n")
-
-	fmt.Print("Enter your choice: ")
-	fmt.Scanln(&choice)
-
-	switch choice {
-	case 1:
-		binaryToDecimal()
-
-	case 2:
-		hexToBinary()
-
-	case 0:
-		os.Exit(0)
-
-	}
+	decimalToBinary()
 }
 
 func decimalToBinary() {
 	var deciInput int
+	array := [9]int{256, 128, 64, 32, 16, 8, 4, 2, 1}
+	var binaryArr [9]int
 
+	// Ask for decimal input
 	fmt.Print("Enter a decimal value: ")
 	fmt.Scanln(&deciInput)
+
+	// Loop for converting the decimal to binary
+	for i := 0; i < 9; i++ {
+		if deciInput >= array[i] { // If the decimal input is greater than the array value
+			deciInput -= array[i] // subtracts the array value to the decimal input
+			binaryArr[i] = 1      // and store 1 to the binary array
+		} else {
+			binaryArr[i] = 0 // Store 0 to the array
+		}
+	}
+
+	// Prints the binary value
+
+	fmt.Print("Binary Value: ")
+	for i := 0; i < 9; i++ {
+		fmt.Print(binaryArr[i])
+	}
 
 }
 
