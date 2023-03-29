@@ -5,19 +5,70 @@ import (
 	"strconv"
 )
 
+var array = [9]int{256, 128, 64, 32, 16, 8, 4, 2, 1}
+var binaryArr [9]int
+
 func main() {
-	decimalToBinary()
+	var value int
+
+	fmt.Print("Enter a value: ")
+	fmt.Scanln(&value)
+
+	if value >= 0 {
+		decimalToBinary(value)
+		fmt.Println()
+		decimalToOctet(value)
+	}
 }
 
-func decimalToBinary() {
-	var deciInput int
-	array := [9]int{256, 128, 64, 32, 16, 8, 4, 2, 1}
-	var binaryArr [9]int
+func decimalToBinary(value int) {
+	deciInput := value
 
 	// Ask for decimal input
-	fmt.Print("Enter a decimal value: ")
-	fmt.Scanln(&deciInput)
+	//fmt.Print("Enter a decimal value: ")
+	//fmt.Scanln(&deciInput)
 
+	decimalToBinaryProcess(deciInput)
+
+	// Prints the binary value
+	fmt.Print("Binary Value: ")
+	for i := 0; i < 9; i++ {
+		fmt.Print(binaryArr[i])
+	}
+}
+
+func decimalToOctet(value int) {
+	//deciInput := value
+	array2 := [3]int{4, 2, 1}
+	var octetArr [3]int
+	octetVal := 0
+
+	//decimalToBinaryProcess(deciInput)
+
+	ctr, max := 0, 3
+
+	for i := 0; i < 3; i++ {
+		h := 0
+		for j := ctr; j < max; j++ {
+			if binaryArr[j] == 1 {
+				octetVal += array2[h]
+				octetArr[i] = octetVal
+			}
+			h++
+		}
+		octetVal = 0
+		ctr += 3
+		max += 3
+	}
+
+	// Prints the binary value
+	fmt.Print("Octet Value: ")
+	for i := 0; i < 3; i++ {
+		fmt.Print(octetArr[i])
+	}
+}
+
+func decimalToBinaryProcess(deciInput int) {
 	// Loop for converting the decimal to binary
 	for i := 0; i < 9; i++ {
 		if deciInput >= array[i] { // If the decimal input is greater than the array value
@@ -27,14 +78,6 @@ func decimalToBinary() {
 			binaryArr[i] = 0 // Store 0 to the array
 		}
 	}
-
-	// Prints the binary value
-
-	fmt.Print("Binary Value: ")
-	for i := 0; i < 9; i++ {
-		fmt.Print(binaryArr[i])
-	}
-
 }
 
 func binaryToDecimal() {
